@@ -1,115 +1,138 @@
+import Head from "next/head";
 import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export default function Home() {
   return (
-    <div
-      className={`${geistSans.className} ${geistMono.className} grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]`}
-    >
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+    <>
+      <Head>
+        <title>Donate Organs - Save Lives</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charSet="UTF-8" />
+        <meta name="description" content="Organ and Blood Donation Initiative under OHM, Government of India" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+          rel="stylesheet"
         />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/pages/index.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+      </Head>
+
+      <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white font-[Poppins] flex flex-col items-center p-6 sm:p-10 gap-10">
+        {/* Header */}
+        <header className="w-full flex flex-col sm:flex-row justify-between items-center gap-4">
+          <div className="flex items-center gap-4">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src="https://www.pngarc.com/wp-content/uploads/2023/05/World-Blood-Donor-Day-Organ-donation-logo-png-image-min.png"
+              alt="Logo"
+              width={80}
+              height={80}
+              className="object-contain"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+            <div className="text-sm sm:text-base text-center sm:text-left">
+              <strong>Under Organ Health Mission</strong>
+              <br />
+              Government of India
+            </div>
+          </div>
+          <div className="flex gap-3">
+            <button
+              className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+              onClick={() => (window.location.href = "user-login.html")}
+            >
+              User Login
+            </button>
+            <button
+              className="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-900"
+              onClick={() => (window.location.href = "admin-login.html")}
+            >
+              Admin Login
+            </button>
+          </div>
+        </header>
+
+        {/* Navigation Bar */}
+        <nav className="flex gap-6 text-sm sm:text-base border-t border-b py-2 w-full justify-center">
+          <a href="index.html" className="hover:underline">Home</a>
+          <a href="check-availability.html" className="hover:underline">Check Availability</a>
+          <a href="dashboard.html" className="hover:underline">Dashboard</a>
+        </nav>
+
+        {/* Hero Section */}
+        <section className="flex flex-col-reverse sm:flex-row items-center gap-8 w-full max-w-5xl">
+          <div className="flex-1 text-center sm:text-left">
+            <h1 className="text-3xl sm:text-4xl font-semibold mb-2">Donate Organs - Save Lives :)</h1>
+            <p className="text-lg text-gray-700 dark:text-gray-300 mb-1">Join the mission to give life a second chance.</p>
+            <p className="italic text-sm text-gray-600 dark:text-gray-400 mb-4">
+              "The gift of life is the greatest legacy one can leave."
+            </p>
+            <button
+              className="bg-green-600 text-white px-5 py-2 rounded hover:bg-green-700"
+              onClick={() => (window.location.href = "register.html")}
+            >
+              Register Now
+            </button>
+          </div>
+          <div className="flex-1">
+            <Image
+              src="https://img.freepik.com/free-vector/donate-blood-isolated-logo_1025-350.jpg"
+              alt="Donate Blood or Organs"
+              width={400}
+              height={400}
+              className="object-contain rounded"
+            />
+          </div>
+        </section>
+
+        {/* Info Cards */}
+        <section className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full max-w-6xl">
+          <div className="border rounded shadow p-4 bg-white dark:bg-gray-800">
+            <Image
+              src="https://img.freepik.com/free-vector/happy-world-blood-donor-day-red-white-background-social-media-design-banner-free-vector_1340-21529.jpg"
+              alt="Blood Donation"
+              width={300}
+              height={200}
+              className="rounded mb-2"
+            />
+            <p>
+              Blood donation is a vital, accessible way to support patients requiring transfusions for surgeries, trauma, or treatments for conditions like cancer or anemia.
+            </p>
+          </div>
+          <div className="border rounded shadow p-4 bg-white dark:bg-gray-800">
+            <Image
+              src="https://www.careinsurance.com/upload_master/media/posts/August2024/national-organ-donation-day.webp"
+              alt="Organ Donation"
+              width={300}
+              height={200}
+              className="rounded mb-2"
+            />
+            <p>
+              Organ donation is a selfless act that can save or transform the lives of individuals suffering from organ failure.
+            </p>
+          </div>
+          <div className="border rounded shadow p-4 bg-white dark:bg-gray-800">
+            <Image
+              src="https://www.shutterstock.com/image-vector/banner-organ-transplant-donation-awareness-260nw-1067188598.jpg"
+              alt="Eligibility"
+              width={300}
+              height={200}
+              className="rounded mb-2"
+            />
+            <p>
+              Any person not less than 18 years of age, who voluntarily authorizes the removal of any of his organ and/or tissue...
+            </p>
+          </div>
+        </section>
+
+        {/* Contact Section */}
+        <section className="text-center">
+          <h2 className="text-2xl font-semibold mb-2">Contact Us</h2>
+          <p><strong>Phone:</strong> +91-9876543210</p>
+          <p><strong>Email:</strong> support@donateorgans.com</p>
+        </section>
+
+        {/* Footer */}
+        <footer className="w-full text-center py-4 border-t mt-10 text-sm text-gray-500 dark:text-gray-400">
+          &copy; 2025 Donate Organs Initiative. All Rights Reserved. | Designed under OHM
+        </footer>
+      </div>
+    </>
   );
 }
