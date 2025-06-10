@@ -1,98 +1,119 @@
 import Head from "next/head";
+import RegisterForm from "../components/RegisterForm";
 
 export default function Register() {
   return (
     <>
       <Head>
         <title>Register Now - Organ Donor Portal</title>
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link
           href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
           rel="stylesheet"
         />
+        <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.development.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.development.js"></script>
       </Head>
+      <div>
+        <style>{`
+          body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #f3e5f5, #e1f5fe);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+          }
 
-      <div className="min-h-screen bg-gradient-to-b from-white to-red-50 dark:from-gray-900 dark:to-black p-6 font-[Poppins] flex items-center justify-center">
-        <div className="max-w-md w-full bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
-          <h2 className="text-3xl font-semibold mb-4 text-red-700 dark:text-red-400">Donor Registration</h2>
-          <p className="text-gray-700 dark:text-gray-300 mb-6">
-            Join our community of life savers by registering as a donor. Your contribution can give someone a second chance at life.
-          </p>
+          .register-form {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+          }
 
-          <form className="flex flex-col gap-4">
-            <label htmlFor="fullname" className="font-semibold text-gray-800 dark:text-gray-200">
-              Full Name
-            </label>
-            <input
-              id="fullname"
-              type="text"
-              placeholder="Full Name"
-              required
-              className="p-3 border border-gray-300 dark:border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-red-500"
-            />
+          h2 {
+            text-align: center;
+            color: #d32f2f;
+            font-size: 26px;
+            margin-bottom: 10px;
+          }
 
-            <label htmlFor="email" className="font-semibold text-gray-800 dark:text-gray-200">
-              Email Address
-            </label>
-            <input
-              id="email"
-              type="email"
-              placeholder="Email Address"
-              required
-              className="p-3 border border-gray-300 dark:border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-red-500"
-            />
+          .login-description {
+            text-align: center;
+            color: #555;
+            font-size: 14px;
+            margin-bottom: 30px;
+          }
 
-            <label htmlFor="phone" className="font-semibold text-gray-800 dark:text-gray-200">
-              Phone Number
-            </label>
-            <input
-              id="phone"
-              type="tel"
-              placeholder="Phone Number"
-              required
-              className="p-3 border border-gray-300 dark:border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-red-500"
-            />
+          form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+          }
 
-            <label htmlFor="location" className="font-semibold text-gray-800 dark:text-gray-200">
-              Location (City, State)
-            </label>
-            <input
-              id="location"
-              type="text"
-              placeholder="Location (City, State)"
-              required
-              className="p-3 border border-gray-300 dark:border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-red-500"
-            />
+          label {
+            font-weight: 600;
+            font-size: 14px;
+            color: #333;
+          }
 
-            <span className="font-semibold text-gray-800 dark:text-gray-200">Select Donation Type:</span>
-            <div className="mb-6 flex gap-6">
-              <div>
-                <input type="checkbox" id="blood" name="donationType" value="Blood" className="mr-2" />
-                <label htmlFor="blood" className="text-blue-700 dark:text-blue-400 font-semibold cursor-pointer">
-                  Blood
-                </label>
-              </div>
-              <div>
-                <input type="checkbox" id="organs" name="donationType" value="Organs" className="mr-2" />
-                <label htmlFor="organs" className="text-blue-700 dark:text-blue-400 font-semibold cursor-pointer">
-                  Organs
-                </label>
-              </div>
-            </div>
+          input[type="text"],
+          input[type="email"],
+          input[type="tel"] {
+            padding: 10px;
+            font-size: 14px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+          }
 
-            <button
-              type="submit"
-              className="bg-red-600 hover:bg-red-700 text-white py-3 rounded font-medium transition-colors duration-200"
-            >
-              Submit
-            </button>
-          </form>
+          button {
+            margin-top: 10px;
+            padding: 12px;
+            font-size: 15px;
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+          }
 
-          <p className="mt-6 text-sm text-gray-600 dark:text-gray-400">
-            <strong>Note:</strong> All your details are kept confidential and used only for donor matching purposes.
-          </p>
-        </div>
+          button:hover {
+            background-color: #1b5e20;
+          }
+
+          .checkbox-container {
+            margin: 8px 0 15px;
+          }
+
+          .checkbox-container input[type="checkbox"] {
+            margin-right: 6px;
+          }
+
+          .checkbox-container label {
+            margin-right: 15px;
+            color: #0077cc;
+            font-weight: 600;
+          }
+
+          .note {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #555;
+          }
+
+          @media (max-width: 480px) {
+            .register-form {
+              padding: 25px 20px;
+            }
+          }
+        `}</style>
+        <RegisterForm />
       </div>
     </>
   );

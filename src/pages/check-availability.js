@@ -1,67 +1,115 @@
 import Head from "next/head";
+import AvailabilitySearch from "../components/AvailabilitySearch";
 
 export default function CheckAvailability() {
   return (
     <>
       <Head>
         <title>Check Availability - Organ Donor Portal</title>
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link
           href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
           rel="stylesheet"
         />
+        <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.development.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.development.js"></script>
       </Head>
+      <div>
+        <style>{`
+          body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #f3e5f5, #e1f5fe);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+          }
 
-      <div className="min-h-screen bg-gradient-to-b from-white to-red-50 dark:from-gray-900 dark:to-black p-6 flex flex-col justify-center items-center font-[Poppins]">
-        <div className="w-full max-w-xl bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
-          <h2 className="text-2xl font-semibold mb-4 text-center text-gray-800 dark:text-white">
-            Check Organ / Blood Availability
-          </h2>
+          .content-container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+            text-align: center;
+          }
 
-          <p className="text-sm text-gray-600 dark:text-gray-300 mb-6 text-center">
-            Our Organ & Blood Donor Match Portal connects patients with life-saving donations by
-            providing real-time availability from verified hospitals and donors.
-            Please use the form below to check what's available in your region.
-          </p>
+          h2 {
+            color: #d32f2f;
+            font-size: 26px;
+            margin-bottom: 10px;
+          }
 
-          <form className="flex flex-col gap-4">
-            <select
-              required
-              className="p-3 border border-gray-300 dark:border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-red-500"
-            >
-              <option value="">Select Organ/Blood Type</option>
-              <option>Heart</option>
-              <option>Kidney</option>
-              <option>Liver</option>
-              <option>Blood</option>
-            </select>
+          .login-description {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 20px;
+          }
 
-            <input
-              type="text"
-              placeholder="Enter City or State"
-              required
-              className="p-3 border border-gray-300 dark:border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-red-500"
-            />
+          form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+          }
 
-            <button
-              type="submit"
-              className="bg-red-600 hover:bg-red-700 text-white font-medium py-2 rounded"
-            >
-              Search
-            </button>
-          </form>
+          select,
+          input {
+            padding: 12px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+          }
 
-          <div className="mt-6 text-center text-sm text-gray-600 dark:text-gray-300">
-            New to the platform?{" "}
-            <a href="/register" className="text-red-600 hover:underline">
-              Register as a Donor or Recipient
-            </a>
-          </div>
-        </div>
+          button {
+            background-color: #2e7d32;
+            color: white;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+          }
 
-        <footer className="mt-8 text-center text-sm text-gray-500 dark:text-gray-400">
-          &copy; 2025 Organ & Blood Donor Match Portal | Powered by OHM
+          button:hover {
+            background-color: #1b5e20;
+          }
+
+          .register-link {
+            margin-top: 20px;
+            font-size: 14px;
+          }
+
+          .register-link a {
+            color: #d32f2f;
+            text-decoration: none;
+            font-weight: 600;
+          }
+
+          .register-link a:hover {
+            text-decoration: underline;
+          }
+
+          .login-footer {
+            background-color: #212121;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+          }
+
+          @media (max-width: 480px) {
+            .content-container {
+              margin: 20px;
+              padding: 20px;
+            }
+          }
+        `}</style>
+        <AvailabilitySearch />
+        <footer className="login-footer">
+          © 2025 Organ & Blood Donor Match Portal | Powered by OHM
         </footer>
       </div>
     </>
